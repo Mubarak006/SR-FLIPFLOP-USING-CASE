@@ -1,4 +1,8 @@
-# SR-FLIPFLOP-USING-CASE
+**EXP 6: SR-FLIP FLOP**
+
+NAME : R.MUBARAK
+
+REF NO: 24900694
 
 **AIM:**
 
@@ -34,15 +38,84 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-/* write all the steps invloved */
+1.	Type the program in Quartus software.
+
+2.	Compile and run the program.
+
+3.	Generate the RTL schematic and save the logic diagram.
+
+4.	Create nodes for inputs and outputs to generate the timing diagram.
+
+5.	For different input combinations generate the timing diagram.
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+ Program for flipflops and verify its truth table in quartus using Verilog programming.
+
+ module sr_flipflop (
+   
+    input clk,    // Clock signal
+    
+    input reset,  // Active-high reset signal
+    
+    input s,      // Set input
+    
+    input r,      // Reset input
+    
+    output reg q, // Output
+    
+    output reg q_bar // Complement of output);
+    
+    always @(posedge clk or posedge reset) begin
+    
+        if (reset) begin
+        
+            q <= 1'b0;      // Reset the flip-flop
+            
+            q_bar <= 1'b1;  // Complement output
+        end
+        
+        
+        else begin
+        
+            case ({s, r})
+            
+                2'b00: ;             // No change
+                
+                2'b01: begin         // Reset
+                
+                    q <= 1'b0;
+                    
+                    q_bar <= 1'b1;
+                end
+                
+                
+                2'b10: begin         // Set
+                
+                    q <= 1'b1;
+                    
+                    q_bar <= 1'b0;
+              
+                end
+                
+                2'b11: begin         // I
+
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+![image](https://github.com/user-attachments/assets/9d6f4811-1586-48e6-a812-01331792c40b)
+
+
+
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+
+![image](https://github.com/user-attachments/assets/b54c9baa-def6-47f1-b09d-60703a6718a2)
+
+
+
 **RESULTS**
+
+
+Thus the  SR flipflop using verilog is implemented and validated their functionality using their functional tables
+
